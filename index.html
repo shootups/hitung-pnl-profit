@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hitungan PnL</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">📈</div>
+      <div>
+        <h1>Hitungan PnL</h1>
+        <p>Hitung nilai PnL dari saldo dan persentase yang Anda masukkan.</p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="currency">Pilih mata uang</label>
+      <select id="currency">
+        <option value="IDR">IDR</option>
+        <option value="USD">USD</option>
+        <option value="CANT">CANT</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="balance">Jumlah saldo</label>
+      <input id="balance" type="number" min="0" step="any" placeholder="Contoh: 1000" />
+    </div>
+
+    <div class="field">
+      <label for="percent">Berapa persen (%)</label>
+      <input id="percent" type="number" min="0" step="any" placeholder="Contoh: 10" />
+    </div>
+
+    <button id="calculateBtn">Hitung PnL</button>
+
+    <div class="result empty" id="result">
+      Masukan nilai untuk melihat hasil perhitungan.
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

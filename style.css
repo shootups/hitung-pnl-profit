@@ -1,0 +1,199 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #eef2ff;
+  color: #111827;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 36px 16px;
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 28%),
+              linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 10%, rgba(99, 102, 241, 0.18), transparent 18%),
+              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.14), transparent 20%);
+  pointer-events: none;
+}
+.container {
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 32px;
+  box-shadow: 0 40px 100px rgba(15, 23, 42, 0.12);
+  padding: 34px;
+  backdrop-filter: blur(16px);
+  animation: floatIn 0.85s ease-out forwards;
+}
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  color: white;
+  font-size: 28px;
+  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.22);
+  animation: iconPulse 2.5s ease-in-out infinite;
+}
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+p {
+  margin: 10px 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+.field {
+  margin-top: 18px;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #334155;
+}
+select,
+input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(248, 250, 252, 0.96);
+  border-radius: 18px;
+  font-size: 16px;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+select:hover,
+input:hover {
+  transform: translateY(-1px);
+}
+select:focus,
+input:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.12);
+  background: #ffffff;
+}
+button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.24);
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(37, 99, 235, 0.28);
+}
+button:active {
+  transform: translateY(0);
+}
+.result {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), #eef4ff);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  color: #1e293b;
+  min-height: 120px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  text-align: left;
+  font-weight: 600;
+  line-height: 1.6;
+  animation: fadeIn 0.35s ease-in-out;
+}
+.result.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: none;
+}
+.result-item {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.result-item span {
+  display: block;
+  color: #475569;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.result-item strong {
+  display: block;
+  color: #0f172a;
+  font-size: 18px;
+}
+.result-item.full {
+  grid-column: span 2;
+  text-align: center;
+  font-size: 18px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    padding: 26px 20px;
+  }
+  .result {
+    grid-template-columns: 1fr;
+  }
+  .result-item.full {
+    grid-column: span 1;
+  }
+}

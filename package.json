@@ -1,0 +1,12 @@
+{
+  "name": "hitungan-pnl",
+  "version": "1.0.0",
+  "description": "Create By Lord Rama - Peky Team.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["pnl", "calculator", "nodejs", "css", "animation"],
+  "author": "",
+  "license": "MIT"
+}
